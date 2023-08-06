@@ -34,7 +34,7 @@ const page = () => {
         }
     }
   return (
-    <div className=" bg-slate-200 w-full h-[calc(100vh-5rem)]  flex justify-around items-center">
+    <div className=" bg-slate-200 w-full overflow-y-scroll h-[calc(100vh-5rem)]  flex justify-around items-center">
         <div className=" w-[35%] flex flex-col gap-3">
             <h1 className=" text-4xl font-semibold">Create your account</h1>
             <form onSubmit={handleSubmit(submithandler)} className=" flex flex-col gap-3">
