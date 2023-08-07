@@ -16,8 +16,8 @@ export async function GET(req:NextRequest){
         }
         
         await connectdb();
-        const products=await Product.find({})
-        const orders=await Order.find({})
+        const products=await Product.find({seller:user.id})
+        const orders=await Order.find({sellerid:user.id,})
         return NextResponse.json({
             Success:true,
             Message:"Dashboard data fetched successfully",
