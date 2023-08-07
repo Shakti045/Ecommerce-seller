@@ -93,8 +93,8 @@ const page = () => {
                             <div className=' w-[200px] items-center flex flex-col gap-2 p-4 bg-slate-800 text-white rounded-md'>
                                <h1 className=" text-xl font-semibold">Total Profit</h1>
                                <h1 className=" text-3xl font-bold">
-                                {
-                                  orders.reduce((acc:any,order:any)=>acc+(order.selllprice*order.quantity),0)
+                                 {
+                                  orders.reduce((acc:any,order:any)=>acc+(order.sellprice*order.quantity),0)
                                 }
                                </h1>
                             </div>
