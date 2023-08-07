@@ -91,7 +91,7 @@ const Productform:any = () => {
             try{
                 const response=await axios.post('/api/product',data,{
                     headers:{
-                        Authorization:`Beraer ${token}`
+                        Authorization:`Bearer ${token}`
                     }
                 });
                 if(response.data.Success){
