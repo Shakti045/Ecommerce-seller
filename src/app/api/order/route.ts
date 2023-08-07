@@ -92,11 +92,13 @@ export async function PUT(req: NextRequest) {
                 Success:false,
                 Message:"Error while updating order status"
             },{status:500});
+        }
         }catch(err){
+            console.log("Error while updating order status","=>",err);
             return NextResponse.json({
-            Success:false,
-            Message:"Orders ferching from seller failed"
-           },{status:400});
+                Success:false,
+                Message:"Error while getting orders from buyer"
+            },{status:500});
         }
         await Order.findByIdAndUpdate({_id:orderid},{status:status});
         return NextResponse.json({
@@ -104,6 +106,7 @@ export async function PUT(req: NextRequest) {
             Message:"Order status updated successfully"
         },{status:200});
         
+
     }catch(err){
         console.log("Error while fetching orders","=>",err);
         return NextResponse.json({
@@ -112,6 +115,7 @@ export async function PUT(req: NextRequest) {
         },{status:500});
     }
 }
+
 
 
 
