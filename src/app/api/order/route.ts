@@ -21,7 +21,8 @@ interface ICreateOrder {
     customername: string;
     quantity: number;
     sellerid: string;
-    clientorderid: string;
+    clientorderid: string,
+    sellprice:number
 }
 
 
