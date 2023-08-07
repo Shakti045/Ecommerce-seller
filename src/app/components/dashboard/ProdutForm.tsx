@@ -12,6 +12,7 @@ import { useRouter } from "next/navigation";
 
 
 const Productform:any = () => {
+     console.log("printing token",token);
     const router=useRouter();
     const [category,setcategory]=useState<any>([]);
     const [attributesreq,setattributesreq]=useState<any>([]);
@@ -19,7 +20,6 @@ const Productform:any = () => {
     const [highlights,sethighlights]=useState<string []>([]);
     const [images,setimages]=useState<string []>([]);
     const [relatedcategory,setrelatedcategory]=useState<string>("");
-    const {token,editmode,product,seteditmode}=useContext(Appcontext);
     const { 
          register, 
          handleSubmit,
