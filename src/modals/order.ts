@@ -4,6 +4,11 @@ const orderschema = new mongoose.Schema({
         type:mongoose.Schema.Types.ObjectId,
         ref:"Product"
     },
+    sellprice:{
+        type:Number,
+        required:true
+
+    },
     deliveryadress:{
         type:Map,
         required:true
