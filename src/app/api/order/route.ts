@@ -80,7 +80,8 @@ export async function PUT(req: NextRequest) {
         }
 
      
-        const responce=await axios.post(`${process.env.BUYER_URL}/api/orders`,{
+        try{
+            const responce=await axios.post(`${process.env.BUYER_URL}/api/orders`,{
             orderid:clientorderid,
             productid:productid,
             status:status
@@ -91,6 +92,11 @@ export async function PUT(req: NextRequest) {
                 Success:false,
                 Message:"Error while updating order status"
             },{status:500});
+        }catch(err){
+            return NextResponse.json({
+            Success:false,
+            Message:"Orders ferching from seller failed"
+           },{status:400});
         }
         await Order.findByIdAndUpdate({_id:orderid},{status:status});
         return NextResponse.json({
