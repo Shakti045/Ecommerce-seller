@@ -25,9 +25,9 @@ interface ICreateOrder {
 }
 
 
-async function createorder({ deliveryadress, productid,customeremail,customername, quantity,sellerid,clientorderid }: ICreateOrder ) {
+async function createorder({ deliveryadress, productid,customeremail,customername, quantity,sellerid,clientorderid ,sellprice}: ICreateOrder ) {
         await connectdb();
-        const neworder=await Order.create({ deliveryadress, productid,customeremail,customername, quantity,sellerid ,clientorderid});
+        const neworder=await Order.create({ deliveryadress, productid,customeremail,customername, quantity,sellerid ,clientorderid,sellprice});
         await User.findByIdAndUpdate({_id:sellerid},{$push:{orders:neworder._id}});
         await Product.findByIdAndUpdate({_id:productid},{$inc:{numberofproducts:-quantity,numberofpurchases:quantity}});
 
