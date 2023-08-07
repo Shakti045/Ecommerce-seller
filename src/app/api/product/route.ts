@@ -34,15 +34,16 @@ export async function GET(req:NextRequest){
 
 export async function POST(req:NextRequest) {
      try{
-         await connectdb();
+        
          const user=await isSeller(req);
-         console.log(user);
+         // console.log(user);
          if(!user){
             return NextResponse.json({
                 Success:false,
                 Message:"Unauthorised access"
             },{status:401})
          }
+         await connectdb();
          const {productname,productimages,originalprice,sellprice,discount,relatedcategory,description,highlights,attributes,numberofproducts}=await req.json();
          if(!productname || !productimages || ! originalprice || !sellprice || !discount || !relatedcategory || !description || !highlights  || !numberofproducts){
             return NextResponse.json({
